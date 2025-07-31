@@ -22,6 +22,12 @@ koin = "4.1.0"
 # Ktor
 ktor = "3.2.2"
 
+# Timber
+timber = "5.0.1"
+
+# Paging
+paging = "3.3.6"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -43,6 +49,9 @@ androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lif
 
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 
+# Timber
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
@@ -55,14 +64,26 @@ koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", ver
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
-#ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
-#ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 konnectivity = { module = "com.plusmobileapps:konnectivity", version.ref = "konnectivity" }
+
+# Paging
+pagging = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+pagging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+
+# Koin
+koin = ["koin-test", "koin-core", "koin-android", "koin-androidx-compose"]#, "koin-compose", "koin-compose-viewmodel"]
+
+# ktor
+ktor = ["ktor-client-core", "ktor-client-android", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json","ktor-client-logging"]
 

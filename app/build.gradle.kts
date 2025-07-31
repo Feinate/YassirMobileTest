@@ -58,18 +58,16 @@ dependencies {
 
     implementation(libs.navigation.compose)
 
-    implementation(libs.koin.test)
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.compose)
-    implementation(libs.koin.compose.viewmodel)
+    implementation(libs.timber)
 
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.android)
-    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.bundles.koin)
+
+    implementation(libs.bundles.ktor)
 
     implementation(libs.konnectivity)
+
+    implementation(libs.pagging)
+    implementation(libs.pagging.runtime)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
