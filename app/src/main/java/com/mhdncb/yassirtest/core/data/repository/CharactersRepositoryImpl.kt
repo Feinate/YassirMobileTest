@@ -12,13 +12,13 @@ class CharactersRepositoryImpl(
     private val rickAndMortySource: RickAndMortySource
 ) : CharactersRepository {
 
-    override fun getCharactersPaging(): Flow<PagingData<com.mhdncb.yassirtest.core.domain.model.Character>> {
+    override fun getCharactersPaging(query: String): Flow<PagingData<com.mhdncb.yassirtest.core.domain.model.Character>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 20
             ),
             pagingSourceFactory = {
-                CharactersPagingManager(rickAndMortySource)
+                CharactersPagingManager(rickAndMortySource, query)
             }
         ).flow
     }

@@ -9,6 +9,7 @@ import com.mhdncb.yassirtest.core.data.utils.safeApiCall
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
@@ -16,6 +17,7 @@ class RickAndMortySource(
     private val httpClient: HttpClient
 ) {
     suspend fun fetchCharacters(
+        query: String,
         pageIndex: Int
     ): ApiResult<List<CharacterDto>, NetworkError> {
         return safeApiCall(
@@ -24,6 +26,7 @@ class RickAndMortySource(
                     urlString = "${Consts.RICK_AND_MORT_BASE_URL}/character/?page=${pageIndex}"
                 ) {
                     contentType(ContentType.Application.Json)
+                    parameter("name", query.ifEmpty { null })
                 }
             },
             apiResult = { response ->
