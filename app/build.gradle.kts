@@ -69,6 +69,9 @@ dependencies {
     implementation(libs.pagging)
     implementation(libs.pagging.runtime)
 
+    implementation(libs.coil)
+    implementation(libs.coil.network)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -2,25 +2,12 @@ package com.mhdncb.yassirtest.feature_main.presentation.screen.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.stateIn
-
-data class HomeUiState(
-    val isLoading: Boolean = false
-)
+import androidx.paging.cachedIn
+import com.mhdncb.yassirtest.core.domain.repository.CharactersRepository
 
 class HomeViewModel(
-
+    private val charactersRepository: CharactersRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(HomeUiState())
-    val uiState = _uiState.asStateFlow()
-        .stateIn(
-            scope = viewModelScope,
-            initialValue = HomeUiState(),
-            started = SharingStarted.WhileSubscribed(5_000)
-        )
-
+    val paging = charactersRepository.getCharactersPaging().cachedIn(viewModelScope)
 }
