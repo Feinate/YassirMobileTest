@@ -28,6 +28,9 @@ timber = "5.0.1"
 # Paging
 paging = "3.3.6"
 
+# Coil
+coil = "3.3.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -72,6 +75,10 @@ konnectivity = { module = "com.plusmobileapps:konnectivity", version.ref = "konn
 # Paging
 pagging = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 pagging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
+
+# Coil
+coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

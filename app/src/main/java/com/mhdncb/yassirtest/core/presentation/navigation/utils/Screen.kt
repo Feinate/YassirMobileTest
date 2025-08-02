@@ -12,6 +12,6 @@ sealed class Screen() {
 
     @Serializable
     internal data class CharacterDetails(
-        val id: String,
+        val id: Int,
     ): Screen()
 }
