@@ -13,5 +13,9 @@ sealed class Screen() {
     @Serializable
     internal data class CharacterDetails(
         val id: Int,
+        val name: String,
+        val species: String,
+        val status: String,
+        val image: String
     ): Screen()
 }

@@ -44,6 +44,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.mhdncb.yassirtest.core.domain.model.Character
 import com.mhdncb.yassirtest.core.ui.theme.Black
 import com.mhdncb.yassirtest.core.ui.theme.White
 import com.mhdncb.yassirtest.core.ui.theme.YassirPurple
@@ -55,7 +56,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun Home(
     paddingValues: PaddingValues,
-    toCharacterDetails: (id: Int) -> Unit,
+    toCharacterDetails: (character: Character) -> Unit,
     viewModel: HomeViewModel = koinViewModel()
 ) {
     val context = LocalContext.current
@@ -195,7 +196,7 @@ fun Home(
 fun CharacterListContent(
     pagingCharacters: LazyPagingItems<com.mhdncb.yassirtest.core.domain.model.Character>,
     lazyListState: LazyListState,
-    toCharacterDetails: (Int) -> Unit,
+    toCharacterDetails: (character: Character) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(

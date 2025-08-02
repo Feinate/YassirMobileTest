@@ -41,8 +41,14 @@ private fun YassirNavHost(
         // Main Screens
         home(
             paddingValues = paddingValues,
-            toCharacterDetails = { characterId ->
-                navController.navigateSingleTop(Screen.CharacterDetails)
+            toCharacterDetails = { character ->
+                navController.navigateSingleTop(Screen.CharacterDetails(
+                    id = character.id,
+                    name = character.name,
+                    species = character.species,
+                    status = character.status,
+                    image = character.image
+                ))
             }
         )
 
