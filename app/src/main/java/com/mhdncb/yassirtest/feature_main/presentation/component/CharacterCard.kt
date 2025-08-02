@@ -35,7 +35,7 @@ import timber.log.Timber
 @Composable
 fun CharacterCard(
     character: Character,
-    onClick: (Int) -> Unit
+    onClick: (character: Character) -> Unit
 ) {
     val context = LocalContext.current
 
@@ -46,7 +46,7 @@ fun CharacterCard(
         ),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(0.dp),
-        onClick = { onClick(character.id) }
+        onClick = { onClick(character) }
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
