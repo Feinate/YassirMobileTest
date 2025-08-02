@@ -15,8 +15,7 @@ class CharactersRepositoryImpl(
     override fun getCharactersPaging(): Flow<PagingData<com.mhdncb.yassirtest.core.domain.model.Character>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 20,
-                enablePlaceholders = false
+                pageSize = 20
             ),
             pagingSourceFactory = {
                 CharactersPagingManager(rickAndMortySource)
