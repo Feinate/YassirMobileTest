@@ -4,5 +4,5 @@ import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
 
 interface CharactersRepository {
-    fun getCharactersPaging(): Flow<PagingData<com.mhdncb.yassirtest.core.domain.model.Character>>
+    fun getCharactersPaging(query: String): Flow<PagingData<com.mhdncb.yassirtest.core.domain.model.Character>>
 }

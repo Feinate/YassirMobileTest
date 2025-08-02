@@ -7,7 +7,8 @@ import com.mhdncb.yassirtest.core.data.source.remote.RickAndMortySource
 import com.mhdncb.yassirtest.core.data.utils.ApiResult
 
 class CharactersPagingManager(
-    private val rickAndMortySource: RickAndMortySource
+    private val rickAndMortySource: RickAndMortySource,
+    private val query: String
 ) : PagingSource<Int, com.mhdncb.yassirtest.core.domain.model.Character>() {
 
     private val numOfOffScreenPage: Int = 4
@@ -22,7 +23,7 @@ class CharactersPagingManager(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, com.mhdncb.yassirtest.core.domain.model.Character> {
         val pageIndex = params.key ?: 1
         return try {
-            when (val result = rickAndMortySource.fetchCharacters(pageIndex)) {
+            when (val result = rickAndMortySource.fetchCharacters(query, pageIndex)) {
                 is ApiResult.Success -> {
                     val characters = result.data // c'est List<CharacterDto>
 
