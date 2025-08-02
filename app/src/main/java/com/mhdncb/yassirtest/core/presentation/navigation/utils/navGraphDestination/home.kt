@@ -8,9 +8,9 @@ import com.mhdncb.yassirtest.feature_main.presentation.screen.home.Home
 
 fun NavGraphBuilder.home(
     paddingValues: PaddingValues,
-    toCharacterDetails: (id: String) -> Unit
+    toCharacterDetails: (id: Int) -> Unit
 ) {
-    composable<Screen.Home>() {
+    composable<Screen.Home> {
         Home(
             paddingValues = paddingValues,
             toCharacterDetails = toCharacterDetails

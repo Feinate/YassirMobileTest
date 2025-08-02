@@ -9,7 +9,6 @@ import com.mhdncb.yassirtest.core.data.utils.safeApiCall
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.request.parameter
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
@@ -22,10 +21,9 @@ class RickAndMortySource(
         return safeApiCall(
             apiCall = {
                 httpClient.get(
-                    urlString = "${Consts.RICK_AND_MORT_BASE_URL}/character"
+                    urlString = "${Consts.RICK_AND_MORT_BASE_URL}/character/?page=${pageIndex}"
                 ) {
                     contentType(ContentType.Application.Json)
-                    parameter("page", pageIndex)
                 }
             },
             apiResult = { response ->

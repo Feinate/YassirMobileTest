@@ -21,7 +21,6 @@ class CharactersPagingManager(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, com.mhdncb.yassirtest.core.domain.model.Character> {
         val pageIndex = params.key ?: 1
-        val pageSize = params.loadSize
         return try {
             when (val result = rickAndMortySource.fetchCharacters(pageIndex)) {
                 is ApiResult.Success -> {
