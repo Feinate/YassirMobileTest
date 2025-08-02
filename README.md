@@ -101,3 +101,6 @@ The project follows a modular architecture based on **Clean Architecture + MVVM 
 - Addition of unit, UI and integration tests.
 - Enhanced error handling (retry, empty view, etc).
 - Multi-language support.
+- **CI/CD Pipeline** setup with GitHub Actions or GitLab CI for automated builds and deployments.
+- **Crashlytics** integration for crash reporting and bug tracking.
+- **Analytics** implementation with Firebase Analytics or Sentry for user behavior tracking and performance monitoring.
